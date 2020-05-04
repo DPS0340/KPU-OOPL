@@ -14,7 +14,7 @@ public:
 class Second : public First
 {
 public:
-    MyFunc()
+    void MyFunc()
     {
         cout << "SecondFunc" << endl;
     }
