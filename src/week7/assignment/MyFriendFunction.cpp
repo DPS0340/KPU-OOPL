@@ -25,20 +25,15 @@ public:
 class Point
 {
 private:
-    static int num;
     int x;
     int y;
 
 public:
+    static int num;
     Point(const int &xpos, const int &ypos) : x(xpos), y(ypos)
     {
         num++;
         cout << "-Point 생성 : 현재 Point " << num << "개" << endl;
-    }
-    static void initPointNum(void)
-    {
-        num = 0;
-        cout << "Point 함수의 static int num 변수는 0으로 초기화됨" << endl;
     }
     friend Point PointOP::PointAdd(const Point &, const Point &);
     friend Point PointOP::PointSub(const Point &, const Point &);
@@ -62,10 +57,10 @@ Point PointOP::PointSub(const Point &pnt1, const Point &pnt2)
     return Point(pnt1.x - pnt2.x, pnt1.y - pnt2.y);
 }
 
+int Point::num = 0;
+
 int main(void)
 {
-
-    Point::initPointNum();
 
     Point pos1(1, 2);
     Point pos2(2, 4);
