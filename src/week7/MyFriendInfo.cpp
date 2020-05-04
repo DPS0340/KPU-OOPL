@@ -5,7 +5,7 @@ using namespace std;
 
 class MyFriendInfo
 {
-private:
+protected:
     char *name;
     int age;
 
@@ -19,12 +19,17 @@ public:
     {
         name = new char[strlen(_name) + 1];
     }
+    MyFriendInfo(const MyFriendInfo &copy)
+        : age(copy.age)
+    {
+        name = new char[strlen(copy.name) + 1];
+    }
     void ShowMyFriendInfo()
     {
         cout << "이름: " << name << endl;
         cout << "나이: " << age << endl;
     }
-    ~MyFriendInfo()
+    virtual ~MyFriendInfo()
     {
         if (name != NULL)
         {
@@ -53,6 +58,12 @@ public:
     {
         addr = new char[strlen(_addr) + 1];
         phone = new char[strlen(_phone) + 1];
+    }
+    MyFriendDetailInfo(const MyFriendDetailInfo &copy)
+        : MyFriendInfo(copy.name, copy.age)
+    {
+        addr = new char[strlen(copy.addr) + 1];
+        phone = new char[strlen(copy.phone) + 1];
     }
     ~MyFriendDetailInfo()
     {
