@@ -5,7 +5,7 @@ using namespace std;
 class First
 {
 public:
-    void MyFunc()
+    virtual void MyFunc()
     {
         cout << "FirstFunc" << endl;
     }
@@ -14,7 +14,7 @@ public:
 class Second : public First
 {
 public:
-    void MyFunc()
+    virtual void MyFunc()
     {
         cout << "SecondFunc" << endl;
     }
@@ -23,7 +23,7 @@ public:
 class Third : public Second
 {
 public:
-    void MyFunc()
+    virtual void MyFunc()
     {
         cout << "ThirdFunc" << endl;
     }
