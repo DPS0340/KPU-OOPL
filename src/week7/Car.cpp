@@ -36,6 +36,6 @@ public:
     {
         cout << "잔여 가솔린: " << GetGasGauge() << endl;
         cout << "잔여 전기량: " << GetElecGauge() << endl;
-        cout << "잔여 워터량: " << waterGauge() << endl;
+        cout << "잔여 워터량: " << waterGauge << endl;
     }
 };
