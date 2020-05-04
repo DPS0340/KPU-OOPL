@@ -5,7 +5,7 @@ using namespace std;
 class First
 {
 public:
-    void FirstFunc()
+    void MyFunc()
     {
         cout << "FirstFunc" << endl;
     }
@@ -14,7 +14,7 @@ public:
 class Second : public First
 {
 public:
-    void SecondFunc()
+    MyFunc()
     {
         cout << "SecondFunc" << endl;
     }
@@ -23,7 +23,7 @@ public:
 class Third : public Second
 {
 public:
-    void ThirdFunc()
+    void MyFunc()
     {
         cout << "ThirdFunc" << endl;
     }
@@ -32,20 +32,14 @@ public:
 int main(void)
 {
     Third *tptr = new Third();
-    Second *sptr = tptr;
-    First *fptr = sptr;
+    Second *sptr = new Second();
+    First *fptr = new First();
 
-    tptr->FirstFunc();
-    tptr->SecondFunc();
-    tptr->ThirdFunc();
+    tptr->MyFunc();
 
-    sptr->FirstFunc();
-    sptr->SecondFunc();
-    sptr->ThirdFunc();
+    sptr->MyFunc();
 
-    fptr->FirstFunc();
-    fptr->SecondFunc();
-    fptr->ThirdFunc();
+    fptr->MyFunc();
 
     return 0;
 }
