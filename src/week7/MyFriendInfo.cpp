@@ -31,6 +31,7 @@ public:
     }
     virtual ~MyFriendInfo()
     {
+        cout << "MyFriendInfo 소멸자 작동" << endl;
         if (name != NULL)
         {
             delete[] name;
@@ -67,6 +68,7 @@ public:
     }
     ~MyFriendDetailInfo()
     {
+        cout << "MyFriendDetailInfo 소멸자 작동" << endl;
         if (addr != NULL)
         {
             delete[] addr;
