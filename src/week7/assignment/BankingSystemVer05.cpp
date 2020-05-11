@@ -222,7 +222,7 @@ int main(void)
         case EXIT:
             return 0;
         default:
-            cout << "Illegel selection.." << endl;
+            cout << "Illegal selection.." << endl;
         }
     }
     return 0;
