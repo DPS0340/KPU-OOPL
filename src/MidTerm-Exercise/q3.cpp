@@ -44,6 +44,16 @@ public:
     {
         delete[] title;
     }
+
+    int GetID(void)
+    {
+        return id;
+    }
+
+    const char *GetTitle(void)
+    {
+        return title;
+    }
 };
 
 class Student
@@ -58,14 +68,29 @@ public:
         : id(_id), subj(_subj)
     {
         name = new char[strlen(_name) + 1];
+
+        strcpy(name, _name);
     }
     Student(const Student &copy)
-        : Student(copy.id, copy.name, copy._subj)
+        : Student(copy.id, copy.name, copy.subj)
     {
     }
     ~Student(void)
     {
         delete[] name;
+    }
+    void Show(void)
+    {
+        cout << " " << GetID() << "            " << GetName() << "      " << subj.GetID() << "          " << subj.GetTitle() << endl;
+    }
+    int GetID(void)
+    {
+        return id;
+    }
+
+    const char *GetName(void)
+    {
+        return name;
     }
 };
 
@@ -80,15 +105,22 @@ public:
     {
         index = 0;
     }
+    ~PManager(void)
+    {
+        for (int i = 0; i < index; i++)
+        {
+            delete pList[i];
+        }
+    }
     int GetIndexFromOne(void)
     {
         return index + 1;
     }
-    bool AddStudent(const char *name, Subject *subj)
+    bool AddStudent(const char *name, Subject &subj)
     {
         if (index < 50)
         {
-            Student *stud = new Subject(index + 1, name, subj);
+            Student *stud = new Student(GetIndexFromOne(), name, subj);
             pList[index++] = stud;
             return true;
         }
@@ -98,16 +130,16 @@ public:
             return false;
         }
     }
-    Student *FindStudent(int _id)
+    Student *FindStudent(int id)
     {
         bool find = false;
         Student *result = NULL;
         for (int i = 0; i < index; i++)
         {
-            if (sList[i]->GetID() == id)
+            if (pList[i]->GetID() == id)
             {
                 find = true;
-                result = sList[i];
+                result = pList[i];
             }
         }
 
@@ -121,6 +153,18 @@ public:
             return result;
         }
     }
+
+    void ShowAll(void)
+    {
+        cout << "---------------------------------------------------" << endl;
+        cout << " 학생ID       이름    Subject ID       Subject 이름" << endl;
+        cout << "---------------------------------------------------" << endl;
+        for (int i = 0; i < index; i++)
+        {
+            pList[i]->Show();
+        }
+        cout << "---------------------------------------------------" << endl;
+    }
 };
 class SManager
 {
@@ -132,6 +176,13 @@ public:
     SManager(void)
     {
         index = 0;
+    }
+    ~SManager(void)
+    {
+        for (int i = 0; i < index; i++)
+        {
+            delete sList[i];
+        }
     }
     bool AddSubject(int _id, const char *_title)
     {
@@ -147,7 +198,7 @@ public:
             return false;
         }
     }
-    Subject *FindSubject(int _id)
+    Subject *FindSubject(int id)
     {
         bool find = false;
         Subject *result = NULL;
@@ -179,11 +230,17 @@ public:
     {
         Main();
     }
-    static void Main(void)
+    static int Main(void)
     {
         MainMenu mainMenu;
         SManager sManager;
         PManager pManager;
+
+        sManager.AddSubject(1, "객체지향언어");
+        sManager.AddSubject(2, "C++");
+        sManager.AddSubject(3, "웹프로그래밍");
+        sManager.AddSubject(4, "Java");
+
         int command;
         while (1)
         {
@@ -197,12 +254,28 @@ public:
             {
                 int index = pManager.GetIndexFromOne();
                 char name[101];
+                int sID;
                 cout << "<<학생정보입력>>" << endl;
                 cout << " - I D: " << index << endl;
-                cout << " - 이름:";
+                cout << " - 이름: ";
+                cin >> name;
+                cout << " - Subject ID: ";
+                cin >> sID;
+                cout << endl;
+
+                Subject *subject = sManager.FindSubject(sID);
+                if (subject == NULL)
+                {
+                    cout << "ID에 맞는 Subject를 찾지 못함" << endl;
+                    continue;
+                }
+
+                pManager.AddStudent(name, *subject);
             }
             else if (command == 2)
             {
+                pManager.ShowAll();
+                cout << endl;
             }
             else
             {
@@ -214,3 +287,10 @@ public:
         return 0;
     }
 };
+
+int main(void)
+{
+    MainCtrl mainCtrl;
+
+    return 0;
+}
