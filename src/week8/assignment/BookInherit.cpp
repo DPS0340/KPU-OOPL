@@ -58,7 +58,7 @@ public:
     {
     }
 
-    ~EBook(void)
+    virtual ~EBook(void)
     {
         cout << "EBook destructor called" << endl;
         delete[] DRMKey;
