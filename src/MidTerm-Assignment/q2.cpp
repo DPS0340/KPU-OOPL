@@ -47,7 +47,7 @@ public:
 class LabList
 {
 private:
-    Lab *lList[10];
+    Lab *labList[50];
     int index;
 
 public:
@@ -59,15 +59,15 @@ public:
     {
         for (int i = 0; i < index; i++)
         {
-            delete lList[i];
+            delete labList[i];
         }
     }
-    bool Add(const int sID, string sName)
+    bool Add(const int lID, string sName)
     {
-        if (index < 10)
+        if (index < 50)
         {
-            Lab *sbj = new Lab(sID, sName);
-            lList[index++] = sbj;
+            Lab *lab = new Lab(lID, sName);
+            labList[index++] = lab;
             BubbleSort();
 
             return true;
@@ -84,10 +84,10 @@ public:
         Lab *result = NULL;
         for (int i = 0; i < index; i++)
         {
-            if (lList[i]->GetID() == id)
+            if (labList[i]->GetID() == id)
             {
                 find = true;
-                result = lList[i];
+                result = labList[i];
             }
         }
 
@@ -108,7 +108,7 @@ public:
         cout << "-----------------------------------" << endl;
         for (int i = 0; i < index; i++)
         {
-            lList[i]->Show();
+            labList[i]->Show();
         }
         cout << "-----------------------------------" << endl;
     }
@@ -119,9 +119,9 @@ public:
         {
             for (int j = 0; j < index - i - 1; j++)
             {
-                if (lList[j]->GetID() > lList[j + 1]->GetID())
+                if (labList[j]->GetID() > labList[j + 1]->GetID())
                 {
-                    SwapLab(*lList[j], *lList[j + 1]);
+                    SwapLab(*labListlabList * lList[j + 1]);
                 }
             }
         }
