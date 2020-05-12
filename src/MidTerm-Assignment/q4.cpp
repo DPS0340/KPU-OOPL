@@ -276,7 +276,7 @@ public:
 
     void Show(string groupTitle)
     {
-        cout << name << "    " << groupID << "   " << groupTitle << "   " << id << "     " << company;
+        cout << name << "    " << groupID << "   " << groupTitle << "   " << id << "     " << company << endl;
     }
 
     int GetID(void)
