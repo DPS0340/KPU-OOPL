@@ -53,6 +53,9 @@ public:
         : Person(copy.name, copy.groupID)
     {
     }
+    virtual ~Person()
+    {
+    }
 
     virtual int getType(void)
     {
@@ -66,16 +69,6 @@ public:
     int getGroupID(void)
     {
         return groupID;
-    }
-
-    void ShowFormat(void)
-    {
-        cout << " 이름 "
-             << "  그룹 ID   "
-             << endl;
-        cout << "------------------------------------------------" << endl;
-        Show();
-        cout << "------------------------------------------------" << endl;
     }
     // 순수 가상 함수
     // 반드시 자식 클래스에서 override 되어야 함
