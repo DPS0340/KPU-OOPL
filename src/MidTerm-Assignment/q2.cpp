@@ -121,7 +121,7 @@ public:
             {
                 if (labList[j]->GetID() > labList[j + 1]->GetID())
                 {
-                    SwapLab(*labListlabList * lList[j + 1]);
+                    SwapLab(*labList[j], *labList[j + 1]);
                 }
             }
         }
