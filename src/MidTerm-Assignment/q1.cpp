@@ -1,19 +1,22 @@
 #include <iostream>
 #include <string>
 
+// 객체지향언어 과제1
+// 2019152038 이지호
+
 using namespace std;
 
 class Person
 {
 protected:
+    // 작성자의 컴파일러에서의 한글의 표현 3바이트와 cstring 라이브러리의 strlen이 호환되지 않아 std::string으로 대체
     string name;
     int groupID;
 
 public:
     Person(string _name, int _groupID)
-        : groupID(_groupID)
+        : name(_name), groupID(_groupID)
     {
-        name = _name;
     }
     Person(const Person &copy)
         : Person(copy.name, copy.groupID)
@@ -30,9 +33,8 @@ private:
 
 public:
     Student(string _name, int _groupID, int _id, int _year, string _major)
-        : Person(_name, _groupID), id(_id), year(_year)
+        : Person(_name, _groupID), id(_id), year(_year), major(_major)
     {
-        major = _major;
     }
     Student(const Student &copy)
         : Student(copy.name, copy.groupID, copy.id, copy.year, copy.major)

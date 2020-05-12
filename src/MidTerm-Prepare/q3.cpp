@@ -240,7 +240,7 @@ public:
             else if (command == 1)
             {
                 int index = pManager.GetIndexFromOne();
-                char name[101];
+                string name;
                 int sID;
                 cout << "<<학생정보입력>>" << endl;
                 cout << " - I D: " << index << endl;

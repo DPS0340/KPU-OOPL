@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 
+// 객체지향언어 과제2
+// 2019152038 이지호
+
 using namespace std;
 
 class Lab
@@ -11,9 +14,8 @@ private:
 
 public:
     Lab(int _id, string _title)
-        : id(_id)
+        : id(_id), title(_title)
     {
-        title = _title;
     }
     Lab(const Lab &copy)
         : Lab(copy.id, copy.title)
@@ -171,7 +173,8 @@ public:
             cout << "그룹 ID   그룹명" << endl;
             cout << "-----------------------------------" << endl;
             res->Show();
-            cout << "-----------------------------------" << endl;
+            cout << "-----------------------------------" << endl
+                 << endl;
         } while (true);
 
         return 0;
