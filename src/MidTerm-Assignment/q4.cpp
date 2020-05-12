@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-// 객체지향언어 과제3
+// 객체지향언어 과제4
 // 2019152038 이지호
 
 using namespace std;
@@ -28,12 +28,13 @@ public:
         cout << " 2. 멘토 추가" << endl;
         cout << " 3. 학생목록 출력" << endl;
         cout << " 4. 멘토목록 출력" << endl;
-        cout << " 5. 사람목록 전체출력" << endl;
-        cout << " 6. 그룹목록 출력" << endl;
+        cout << " 5. 그룹목록 출력" << endl;
         cout << " 0. 종료" << endl;
         cout << "---------------" << endl;
         cout << " 선택>>";
         cin >> command;
+
+        cout << endl;
 
         return command;
     }
@@ -57,23 +58,27 @@ public:
     {
     }
 
-    virtual int getType(void)
+    virtual int GetType(void)
     {
         return ID::PERSON;
     }
 
-    string getName(void)
+    string GetName(void)
     {
         return name;
     }
-    int getGroupID(void)
+    int GetGroupID(void)
     {
         return groupID;
     }
-    // 순수 가상 함수
-    // 반드시 자식 클래스에서 override 되어야 함
-    virtual void Show(string groupTitle) = 0;
-    virtual int GetID(void) = 0;
+    virtual void Show(string groupTitle)
+    {
+        return;
+    }
+    virtual int GetID(void)
+    {
+        return 0;
+    }
 };
 
 class Group
@@ -142,7 +147,6 @@ public:
         {
             Group *sbj = new Group(gID, sName);
             labList[index++] = sbj;
-            BubbleSort();
 
             return true;
         }
@@ -228,7 +232,7 @@ public:
     {
     }
 
-    int getType(void)
+    int GetType(void)
     {
         return ID::STUDENT;
     }
@@ -269,7 +273,7 @@ public:
     {
     }
 
-    int getType(void)
+    int GetType(void)
     {
         return ID::MENTOR;
     }
@@ -350,12 +354,6 @@ public:
         }
     }
 
-    void ShowAll(GroupList &groupList)
-    {
-        ShowStudents(groupList);
-        ShowMentors(groupList);
-    }
-
     void ShowStudents(GroupList &groupList)
     {
         cout << " 이름 "
@@ -367,9 +365,9 @@ public:
         cout << "-----------------------------------" << endl;
         for (int i = 0; i < index; i++)
         {
-            if (pList[i]->getType() == ID::STUDENT)
+            if (pList[i]->GetType() == ID::STUDENT)
             {
-                Group *group = groupList.Find(pList[i]->getGroupID());
+                Group *group = groupList.Find(pList[i]->GetGroupID());
                 string title = group->GetTitle();
                 pList[i]->Show(title);
             }
@@ -387,18 +385,14 @@ public:
         cout << "-----------------------------------" << endl;
         for (int i = 0; i < index; i++)
         {
-            if (pList[i]->getType() == ID::MENTOR)
+            if (pList[i]->GetType() == ID::MENTOR)
             {
-                Group *group = groupList.Find(pList[i]->getGroupID());
+                Group *group = groupList.Find(pList[i]->GetGroupID());
                 string title = group->GetTitle();
                 pList[i]->Show(title);
             }
         }
         cout << "-----------------------------------" << endl;
-    }
-
-    void BubbleSort(void)
-    {
     }
 };
 
@@ -518,11 +512,6 @@ public:
                 cout << endl;
             }
             else if (command == 5)
-            {
-                pList.ShowAll(gList);
-                cout << endl;
-            }
-            else if (command == 6)
             {
                 gList.ShowAll();
                 cout << endl;

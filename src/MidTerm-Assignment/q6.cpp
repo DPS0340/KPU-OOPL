@@ -1,10 +1,20 @@
 #include <iostream>
 #include <string>
 
-// 객체지향언어 과제3
+// 객체지향언어 과제5
 // 2019152038 이지호
 
 using namespace std;
+
+namespace ID
+{
+    enum
+    {
+        PERSON = 0,
+        STUDENT,
+        MENTOR
+    };
+};
 
 class MainMenu
 {
@@ -15,8 +25,11 @@ public:
 
         cout << "----- 메 뉴 -----" << endl;
         cout << " 1. 학생 추가" << endl;
-        cout << " 2. 학생목록 출력" << endl;
-        cout << " 3. 그룹목록 출력" << endl;
+        cout << " 2. 멘토 추가" << endl;
+        cout << " 3. 학생목록 출력" << endl;
+        cout << " 4. 멘토목록 출력" << endl;
+        cout << " 5. 사람목록 전체출력" << endl;
+        cout << " 6. 그룹목록 출력" << endl;
         cout << " 0. 종료" << endl;
         cout << "---------------" << endl;
         cout << " 선택>>";
@@ -42,6 +55,14 @@ public:
         : Person(copy.name, copy.groupID)
     {
     }
+    virtual ~Person()
+    {
+    }
+
+    virtual int GetType(void)
+    {
+        return ID::PERSON;
+    }
 
     string GetName(void)
     {
@@ -51,10 +72,13 @@ public:
     {
         return groupID;
     }
-
-    virtual void Show(void)
+    virtual void Show(string groupTitle)
     {
-        cout << name << "    " << groupID << endl;
+        return;
+    }
+    virtual int GetID(void)
+    {
+        return 0;
     }
 };
 
@@ -99,7 +123,7 @@ public:
 class GroupList
 {
 private:
-    Group *labList[10];
+    Group *labList[50];
     int index;
 
 public:
@@ -120,10 +144,10 @@ public:
     }
     bool Add(const int gID, string sName)
     {
-        if (index < 10)
+        if (index < 50)
         {
-            Group *grp = new Group(gID, sName);
-            labList[index++] = grp;
+            Group *sbj = new Group(gID, sName);
+            labList[index++] = sbj;
             BubbleSort();
 
             return true;
@@ -210,6 +234,11 @@ public:
     {
     }
 
+    int GetType(void)
+    {
+        return ID::STUDENT;
+    }
+
     void Show(string groupTitle)
     {
         cout << name << "    " << groupID << "   " << groupTitle
@@ -230,35 +259,70 @@ public:
     }
 };
 
-class StudentList
+class Mentor : public Person
+{
+private:
+    int id;
+    string company;
+
+public:
+    Mentor(string _name, int _groupID, int _id, string _company)
+        : Person(_name, _groupID), id(_id), company(_company)
+    {
+    }
+    Mentor(const Mentor &copy)
+        : Mentor(copy.name, copy.groupID, copy.id, copy.company)
+    {
+    }
+
+    int GetType(void)
+    {
+        return ID::MENTOR;
+    }
+
+    void Show(string groupTitle)
+    {
+        cout << name << "    " << groupID << "   " << groupTitle << "   " << id << "     " << company << endl;
+    }
+
+    int GetID(void)
+    {
+        return id;
+    }
+    string GetCompany(void)
+    {
+        return company;
+    }
+};
+
+class PersonList
 {
 private:
     // HAS-A 관계
-    Student *sList[50];
+    Person *pList[50];
     int index;
 
 public:
-    StudentList(void)
+    PersonList(void)
     {
         index = 0;
     }
-    ~StudentList(void)
+    ~PersonList(void)
     {
         for (int i = 0; i < index; i++)
         {
-            delete sList[i];
+            delete pList[i];
         }
     }
     int GetIndexFromOne(void)
     {
         return index + 1;
     }
-    bool Add(string _name, int _groupID, int _id, int _year, string _major)
+    bool Add(Person *person)
     {
         if (index < 50)
         {
-            Student *std = new Student(_name, _groupID, _id, _year, _major);
-            sList[index++] = std;
+            pList[index++] = person;
 
             return true;
         }
@@ -268,22 +332,22 @@ public:
             return false;
         }
     }
-    Student *Find(int id)
+    Person *Find(int id)
     {
         bool find = false;
-        Student *result = NULL;
+        Person *result = NULL;
         for (int i = 0; i < index; i++)
         {
-            if (sList[i]->GetID() == id)
+            if (pList[i]->GetID() == id)
             {
                 find = true;
-                result = sList[i];
+                result = pList[i];
             }
         }
 
         if (!find)
         {
-            cout << " >> 그런 ID의 Student는 없습니다." << endl;
+            cout << " >> 그런 ID의 Person은 없습니다." << endl;
             return NULL;
         }
         else
@@ -294,24 +358,72 @@ public:
 
     void ShowAll(GroupList &groupList)
     {
+        BubbleSort();
+        ShowMentors(groupList);
+        ShowStudents(groupList);
+    }
+
+    void ShowStudents(GroupList &groupList)
+    {
+        cout << "멘토 출력 " << endl;
         cout << " 이름 "
              << "  그룹 ID   "
+             << "  그룹 이름   "
              << " ID "
              << " 입학년도 "
              << " 전공 " << endl;
         cout << "-----------------------------------" << endl;
         for (int i = 0; i < index; i++)
         {
-            Group *group = groupList.Find(sList[i]->GetGroupID());
-            string title = group->GetTitle();
-            sList[i]->Show(title);
+            if (pList[i]->GetType() == ID::STUDENT)
+            {
+                Group *group = groupList.Find(pList[i]->GetGroupID());
+                string title = group->GetTitle();
+                pList[i]->Show(title);
+            }
         }
         cout << "-----------------------------------" << endl;
     }
 
-    void SwapStudent(Student &a, Student &b)
+    void ShowMentors(GroupList &groupList)
     {
-        Student temp = a;
+        cout << " 이름 "
+             << "  그룹 ID   "
+             << "  그룹 이름   "
+             << " ID "
+             << " 회사명" << endl;
+        cout << "-----------------------------------" << endl;
+        for (int i = 0; i < index; i++)
+        {
+            if (pList[i]->GetType() == ID::MENTOR)
+            {
+                Group *group = groupList.Find(pList[i]->GetGroupID());
+                string title = group->GetTitle();
+                pList[i]->Show(title);
+            }
+        }
+        cout << "-----------------------------------" << endl;
+    }
+
+    void BubbleSort(void)
+    {
+        for (int i = 0; i < index; i++)
+        {
+            for (int j = 0; j < index - i - 1; j++)
+            {
+                if (pList[j]->GetType() < pList[j + 1]->GetType() || pList[j]->GetID() > pList[j + 1]->GetID())
+                {
+                    SwapPerson(*pList[j], *pList[j + 1]);
+                }
+            }
+        }
+
+        return;
+    }
+
+    void SwapPerson(Person &a, Person &b)
+    {
+        Person temp = a;
         a = b;
         b = temp;
     }
@@ -327,7 +439,7 @@ public:
     static int Main(void)
     {
         MainMenu mainMenu;
-        StudentList sList;
+        PersonList pList;
         GroupList gList;
 
         gList.Add(1, "객체지향언어");
@@ -351,7 +463,7 @@ public:
             }
             else if (command == 1)
             {
-                int index = sList.GetIndexFromOne();
+                int index = pList.GetIndexFromOne();
                 string name = "";
                 string major = "";
                 int gID;
@@ -378,7 +490,9 @@ public:
                     continue;
                 }
 
-                bool res = sList.Add(name, group->GetID(), index, sYear, major);
+                Student *std = new Student(name, gID, index, sYear, major);
+
+                bool res = pList.Add(std);
                 if (res == true)
                 {
                     cout << "학생 추가 성공" << endl
@@ -387,10 +501,55 @@ public:
             }
             else if (command == 2)
             {
-                sList.ShowAll(gList);
-                cout << endl;
+                int index = pList.GetIndexFromOne();
+                string name;
+                string company;
+                int gID;
+                cout << "<<멘토정보입력>>" << endl;
+                cout << " - I D: " << index << endl;
+                cout << " - 이름: ";
+                cin >> name;
+                cout << " - 회사명: ";
+                cin >> company;
+                cout << " - Group ID: ";
+                cin >> gID;
+
+                cout << endl
+                     << endl;
+
+                Group *group = gList.Find(gID);
+                if (group == NULL)
+                {
+                    cout << "ID에 맞는 Group을 찾지 못함" << endl
+                         << endl;
+                    continue;
+                }
+
+                Mentor *std = new Mentor(name, gID, index, company);
+
+                bool res = pList.Add(std);
+                if (res == true)
+                {
+                    cout << "멘토 추가 성공" << endl
+                         << endl;
+                }
             }
             else if (command == 3)
+            {
+                pList.ShowStudents(gList);
+                cout << endl;
+            }
+            else if (command == 4)
+            {
+                pList.ShowMentors(gList);
+                cout << endl;
+            }
+            else if (command == 5)
+            {
+                pList.ShowAll(gList);
+                cout << endl;
+            }
+            else if (command == 6)
             {
                 gList.ShowAll();
                 cout << endl;
