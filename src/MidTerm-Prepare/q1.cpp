@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 
 using namespace std;
 
@@ -7,15 +7,15 @@ class Student
 {
 private:
     int id;
-    char *name;
+    string name;
     int subjID;
-    char subjectName[41];
+    string subjectName;
 
 public:
-    Student(int _id, const char *_name, int _subjID, char *_subjectName)
+    Student(int _id, string _name, int _subjID, string _subjectName)
         : id(_id), subjID(_subjID)
     {
-        if (strlen(_subjectName) > 20)
+        if (_subjectName.size() > 20)
         {
             cerr << "Error: Subject 이름이 20자를 초과함" << endl;
             exit(1);
@@ -30,10 +30,8 @@ public:
             cerr << "Error: 과목 id가 0보다 작거나 같음" << endl;
             exit(1);
         }
-        name = new char(strlen(_name) + 1);
-
-        strcpy(name, _name);
-        strcpy(subjectName, _subjectName);
+        name = _name;
+        subjectName = _subjectName;
     }
 
     void ShowStudent(void)

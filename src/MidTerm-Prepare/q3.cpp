@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 
 using namespace std;
 
@@ -25,24 +25,17 @@ class Subject
 {
 private:
     int id;
-    char *title;
+    string title;
 
 public:
-    Subject(int _id, const char *_title)
+    Subject(int _id, string _title)
         : id(_id)
     {
-        title = new char[strlen(_title) + 1];
-
-        strcpy(title, _title);
+        title = _title;
     }
     Subject(const Subject &copy)
         : Subject(copy.id, copy.title)
     {
-    }
-
-    ~Subject(void)
-    {
-        delete[] title;
     }
 
     int GetID(void)
@@ -50,7 +43,7 @@ public:
         return id;
     }
 
-    const char *GetTitle(void)
+    string GetTitle(void)
     {
         return title;
     }
@@ -60,24 +53,18 @@ class Student
 {
 private:
     int id;
-    char *name;
+    string name;
     Subject &subj;
 
 public:
-    Student(int _id, const char *_name, Subject &_subj)
+    Student(int _id, string _name, Subject &_subj)
         : id(_id), subj(_subj)
     {
-        name = new char[strlen(_name) + 1];
-
-        strcpy(name, _name);
+        name = _name;
     }
     Student(const Student &copy)
         : Student(copy.id, copy.name, copy.subj)
     {
-    }
-    ~Student(void)
-    {
-        delete[] name;
     }
     void Show(void)
     {
@@ -88,7 +75,7 @@ public:
         return id;
     }
 
-    const char *GetName(void)
+    string GetName(void)
     {
         return name;
     }
@@ -116,7 +103,7 @@ public:
     {
         return index + 1;
     }
-    bool AddStudent(const char *name, Subject &subj)
+    bool AddStudent(string name, Subject &subj)
     {
         if (index < 50)
         {
@@ -184,7 +171,7 @@ public:
             delete sList[i];
         }
     }
-    bool AddSubject(int _id, const char *_title)
+    bool AddSubject(int _id, string _title)
     {
         if (index < 10)
         {

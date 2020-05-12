@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 
 using namespace std;
 
@@ -7,30 +7,24 @@ class Subject
 {
 private:
     int id;
-    char *title;
+    string title;
 
 public:
-    Subject(int _id, const char *_title)
+    Subject(int _id, const string _title)
         : id(_id)
     {
-        title = new char[strlen(_title) + 1];
-
-        strcpy(title, _title);
+        title = _title;
     }
     Subject(const Subject &copy)
         : Subject(copy.id, copy.title)
     {
-    }
-    ~Subject(void)
-    {
-        delete[] title;
     }
 
     int GetID(void)
     {
         return id;
     }
-    const char *GetTitle(void)
+    string GetTitle(void)
     {
         return title;
     }
@@ -38,13 +32,10 @@ public:
     {
         id = _id;
     }
-    void SetTitle(const char *_title)
+    void SetTitle(string _title)
     {
-        delete[] title;
 
-        title = new char[strlen(_title) + 1];
-
-        strcpy(title, _title);
+        title = _title;
     }
     void Show(void)
     {
@@ -70,7 +61,7 @@ public:
             delete sList[i];
         }
     }
-    bool Add(const int sID, const char *sName)
+    bool Add(const int sID, string sName)
     {
         if (index < 10)
         {
@@ -129,7 +120,7 @@ public:
             {
                 if (sList[j]->GetID() > sList[j + 1]->GetID())
                 {
-                    SwapSubject(*sList[j], *sList[j + 1]);
+                    SwapSubject(sList[j], sList[j + 1]);
                 }
             }
         }
@@ -137,11 +128,11 @@ public:
         return;
     }
 
-    void SwapSubject(Subject &a, Subject &b)
+    void SwapSubject(Subject *a, Subject *b)
     {
-        Subject temp = a;
-        a = b;
-        b = temp;
+        Subject temp = *a;
+        *a = *b;
+        *b = temp;
     }
 };
 
