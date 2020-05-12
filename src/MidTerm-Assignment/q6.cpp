@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-// 객체지향언어 과제5
+// 객체지향언어 과제6
 // 2019152038 이지호
 
 using namespace std;
