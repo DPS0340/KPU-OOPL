@@ -5,7 +5,7 @@ import geometry.Circle;
 public class EntryPoint {
 	public static void main(String[] args) {
 		Circle obj = new Circle(5);
-		System.out.println("¹İÁö¸§ = " + obj.radius);
-		System.out.println("¸éÀû = " + obj.getArea());
+		System.out.println("ë°˜ì§€ë¦„ = " + obj.radius);
+		System.out.println("ë©´ì  = " + obj.getArea());
 	}
 }
