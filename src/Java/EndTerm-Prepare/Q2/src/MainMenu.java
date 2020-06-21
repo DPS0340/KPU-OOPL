@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class MainMenu {
 	static int IssueMenu(Scanner scanner) {		
-		System.out.println("------¸Þ ´º------");
-		System.out.println("1. ¿¬¶ôÃ³ Ãß°¡");
-		System.out.println("2. ¿¬¶ôÃ³ ¸ñ·Ï Ãâ·Â");
-		System.out.println("0. Á¾·á");
+		System.out.println("------ë©” ë‰´------");
+		System.out.println("1. ì—°ë½ì²˜ ì¶”ê°€");
+		System.out.println("2. ì—°ë½ì²˜ ëª©ë¡ ì¶œë ¥");
+		System.out.println("0. ì¢…ë£Œ");
 		System.out.println("---------------");
 		System.out.printf(">>");
 		if(scanner.hasNextInt()) {
@@ -17,16 +17,16 @@ public class MainMenu {
 	
 	static void addAddress(Scanner scanner, ContactManager contactManager) {
 		String name, email, group;
-		System.out.println("<<¿¬¶ôÃ³ Á¤º¸ÀÔ·Â>>");
-		System.out.printf("  - ÀÌ¸§: ");
+		System.out.println("<<ì—°ë½ì²˜ ì •ë³´ìž…ë ¥>>");
+		System.out.printf("  - ì´ë¦„: ");
 		name = scanner.next();
-		System.out.printf("  - ÀÌ¸ÞÀÏ: ");
+		System.out.printf("  - ì´ë©”ì¼: ");
 		email = scanner.next();
-		System.out.printf("  - ±×·ì: ");
+		System.out.printf("  - ê·¸ë£¹: ");
 		group = scanner.next();
 		Contact contact = new Contact(name, email, group);
 		contactManager.addContact(contact);
-		System.out.println(String.format("   >> %s %s Ãß°¡ ¼º°ø...", group, name));
+		System.out.println(String.format("   >> %s %s ì¶”ê°€ ì„±ê³µ...", group, name));
 		return;
 	}
 }

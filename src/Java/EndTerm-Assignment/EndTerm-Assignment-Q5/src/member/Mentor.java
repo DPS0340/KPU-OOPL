@@ -16,14 +16,14 @@ public class Mentor extends Member {
 	
 	@Override
 	public void showWithType() {
-		System.out.printf("∏‡≈‰   ");
+		System.out.printf("Î©òÌÜ†   ");
 		show();
 	}
 	
 	@Override
 	public void showFormat() {
 		System.out.println("--------------------------------------");
-		System.out.println("ID      ¿Ã∏ß        Team      »∏ªÁ");
+		System.out.println("ID      Ïù¥Î¶Ñ        Team      ÌöåÏÇ¨");
 		System.out.println("--------------------------------------");
 		show();
 		System.out.println("--------------------------------------");

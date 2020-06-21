@@ -24,7 +24,7 @@ public class Team implements Showable {
 	}
 	public void showFormat() {
 		System.out.println("-------------------");
-		System.out.println("ID      Team ¿Ã∏ß");
+		System.out.println("ID      Team Ïù¥Î¶Ñ");
 		System.out.println("-------------------");
 		show();
 		System.out.println("-------------------");

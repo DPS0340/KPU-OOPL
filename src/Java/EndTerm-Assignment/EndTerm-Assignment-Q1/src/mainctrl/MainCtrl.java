@@ -5,7 +5,7 @@ import team.Team;
 
 public class MainCtrl {
 	public static void main(String[] args) {
-		Student student = new Student(1, "È«ÇĞ»ı", new Team(1, "¾ÆÄ§ÀÌ´Ù"), "¼ÒÇÁÆ®¿ş¾î", 1);
+		Student student = new Student(1, "í™í•™ìƒ", new Team(1, "ì•„ì¹¨ì´ë‹¤"), "ì†Œí”„íŠ¸ì›¨ì–´", 1);
 		student.showFormat();
 	}
 }

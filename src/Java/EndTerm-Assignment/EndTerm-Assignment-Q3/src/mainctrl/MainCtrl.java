@@ -12,70 +12,70 @@ public class MainCtrl {
 		Scanner scanner = new Scanner(System.in);
 		MemberManager memberManager = new MemberManager(50);
 		TeamManager teamManager = new TeamManager(50);
-		teamManager.insert(new Team(teamManager.getNextIndex(), "¾ÆÄ§ÀÌ´Ù"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "Á¡½É¸Ô°í"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "³î´Ù°¡ÀÚ"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "²Ş²Û´Ù"));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ì•„ì¹¨ì´ë‹¤"));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ì ì‹¬ë¨¹ê³ "));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ë†€ë‹¤ê°€ì"));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ê¿ˆê¾¼ë‹¤"));
 		
-		memberManager.insert(new Student(memberManager.getNextIndex(), "È«ÇĞ»ı", teamManager.getTeamByIndex(1), "¼ÒÇÁÆ®¿ş¾î", 1));
-		memberManager.insert(new Student(memberManager.getNextIndex(), "±èÇĞ»ı", teamManager.getTeamByIndex(2), "°ÔÀÓ°øÇĞ", 2));
-		memberManager.insert(new Student(memberManager.getNextIndex(), "¹ÚÇĞ»ı", teamManager.getTeamByIndex(1), "ÄÄÇ»ÅÍ°øÇĞ", 3));
+		memberManager.insert(new Student(memberManager.getNextIndex(), "í™í•™ìƒ", teamManager.getTeamByIndex(1), "ì†Œí”„íŠ¸ì›¨ì–´", 1));
+		memberManager.insert(new Student(memberManager.getNextIndex(), "ê¹€í•™ìƒ", teamManager.getTeamByIndex(2), "ê²Œì„ê³µí•™", 2));
+		memberManager.insert(new Student(memberManager.getNextIndex(), "ë°•í•™ìƒ", teamManager.getTeamByIndex(1), "ì»´í“¨í„°ê³µí•™", 3));
 		int res;
 		while (true) {
 			res = MainMenu.issueMenu(scanner);
 			switch (res) {
 			case 0:
-				System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+				System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 				return;
 			case 1:
 				int id = memberManager.getNextIndex();
 				int year, teamID;
 				String name, major;
 				Team team;
-				System.out.println("<ÇĞ»ı ¸â¹ö Ãß°¡>");
+				System.out.println("<í•™ìƒ ë©¤ë²„ ì¶”ê°€>");
 				System.out.println(String.format(" - ID: %d", id));
-				System.out.printf(" - ÀÌ¸§: ");
+				System.out.printf(" - ì´ë¦„: ");
 				name = scanner.next();
-				System.out.printf(" - Àü°ø: ");
+				System.out.printf(" - ì „ê³µ: ");
 				major = scanner.next();
-				System.out.printf(" - ÇĞ³â: ");
+				System.out.printf(" - í•™ë…„: ");
 				year = scanner.nextInt();
 				teamManager.showAll();
 				System.out.printf(" - Team ID: ");
 				teamID = scanner.nextInt();
 				team = teamManager.getTeamByIndex(teamID);
 				if(team == null) {
-					System.out.println("±×·± ÆÀÀº ¾ø½À´Ï´Ù.");
+					System.out.println("ê·¸ëŸ° íŒ€ì€ ì—†ìŠµë‹ˆë‹¤.");
 					break;
 				}
 				Student student = new Student(id, name, team, major, year);
 				boolean isInserted = memberManager.insert(student);
 				
 				if(isInserted == false) {
-					System.out.println("ÇĞ»ı Ãß°¡¿¡ ½ÇÆĞÇß½À´Ï´Ù");
+					System.out.println("í•™ìƒ ì¶”ê°€ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
 					break;
 				}
 				
-				System.out.println(String.format("=> %s: ÇĞ»ıÀ» Ãß°¡Çß½À´Ï´Ù", name));
+				System.out.println(String.format("=> %s: í•™ìƒì„ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤", name));
 				break;
 			case 2:
-				System.out.println("<ÇĞ»ı ¸â¹ö ¸ñ·Ï>");
+				System.out.println("<í•™ìƒ ë©¤ë²„ ëª©ë¡>");
 				memberManager.showStudents();
 				break;
 			case 3:
-				System.out.println("¹Ì±¸Çö");
+				System.out.println("ë¯¸êµ¬í˜„");
 				break;
 			case 4:
-				System.out.println("¹Ì±¸Çö");
+				System.out.println("ë¯¸êµ¬í˜„");
 				break;
 			case 5:
-				System.out.println("¹Ì±¸Çö");
+				System.out.println("ë¯¸êµ¬í˜„");
 				break;
 			case 6:
-				System.out.println("¹Ì±¸Çö");
+				System.out.println("ë¯¸êµ¬í˜„");
 				break;
 			default:
-				System.out.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+				System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
 				break;
 			}
 		}

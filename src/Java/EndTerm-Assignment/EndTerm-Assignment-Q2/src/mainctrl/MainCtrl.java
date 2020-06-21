@@ -10,20 +10,20 @@ public class MainCtrl {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		TeamManager teamManager = new TeamManager(50);
-		teamManager.insert(new Team(teamManager.getNextIndex(), "¾ÆÄ§ÀÌ´Ù"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "Á¡½É¸Ô°í"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "³î´Ù°¡ÀÚ"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "²Ş²Û´Ù"));
-		System.out.println("µğÆúÆ® Team ¸ñ·Ï Ãâ·Â...");
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ì•„ì¹¨ì´ë‹¤"));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ì ì‹¬ë¨¹ê³ "));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ë†€ë‹¤ê°€ì"));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ê¿ˆê¾¼ë‹¤"));
+		System.out.println("ë””í´íŠ¸ Team ëª©ë¡ ì¶œë ¥...");
 		teamManager.showAll();
 		System.out.printf("- Team ID:");
 		int res = scanner.nextInt();
 		Team found = teamManager.getTeamByIndex(res);
 		if(found != null) {
-			System.out.println("<<Ã£Àº Team>>");
+			System.out.println("<<ì°¾ì€ Team>>");
 			found.showFormat();
 		} else {
-			System.out.println("Ã£Áö ¸øÇß½À´Ï´Ù..");
+			System.out.println("ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤..");
 		}
 	}
 }

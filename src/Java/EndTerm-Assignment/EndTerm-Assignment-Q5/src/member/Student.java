@@ -18,14 +18,14 @@ public class Student extends Member {
 	
 	@Override
 	public void showWithType() {
-		System.out.printf("ÇĞ»ı   ");
+		System.out.printf("í•™ìƒ   ");
 		show();
 	}
 	
 	@Override
 	public void showFormat() {
 		System.out.println("--------------------------------------");
-		System.out.println("ID      ÀÌ¸§        Team      Àü°ø       ÇĞ³â");
+		System.out.println("ID      ì´ë¦„        Team      ì „ê³µ       í•™ë…„");
 		System.out.println("--------------------------------------");
 		show();
 		System.out.println("--------------------------------------");

@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class MainMenu {
 	static int IssueMenu(Scanner scanner) {		
-		System.out.println("------¸Þ ´º------");
-		System.out.println("1. ¿¬¶ôÃ³(»ç¶÷) Ãß°¡");
-		System.out.println("2. ¿¬¶ôÃ³(È¸»ç) Ãß°¡");
-		System.out.println("3. ¿¬¶ôÃ³ Á¶È¸");
-		System.out.println("4. ¿¬¶ôÃ³ ¸ñ·Ï Ãâ·Â");
-		System.out.println("5. ¿¬¶ôÃ³ ±×·ì Ãß°¡");
-		System.out.println("6. ¿¬¶ôÃ³ ±×·ì ¸ñ·Ï Ãâ·Â");
-		System.out.println("0. Á¾·á");
+		System.out.println("------ë©” ë‰´------");
+		System.out.println("1. ì—°ë½ì²˜(ì‚¬ëžŒ) ì¶”ê°€");
+		System.out.println("2. ì—°ë½ì²˜(íšŒì‚¬) ì¶”ê°€");
+		System.out.println("3. ì—°ë½ì²˜ ì¡°íšŒ");
+		System.out.println("4. ì—°ë½ì²˜ ëª©ë¡ ì¶œë ¥");
+		System.out.println("5. ì—°ë½ì²˜ ê·¸ë£¹ ì¶”ê°€");
+		System.out.println("6. ì—°ë½ì²˜ ê·¸ë£¹ ëª©ë¡ ì¶œë ¥");
+		System.out.println("0. ì¢…ë£Œ");
 		System.out.println("---------------");
 		System.out.printf(">>");
 		if(scanner.hasNextInt()) {
@@ -23,22 +23,22 @@ public class MainMenu {
 		String name, email;
 		int groupID;
 		ContactGroup group = null;
-		System.out.println("<<¿¬¶ôÃ³ Á¤º¸ÀÔ·Â>>");
-		System.out.printf("  - ÀÌ¸§: ");
+		System.out.println("<<ì—°ë½ì²˜ ì •ë³´ìž…ë ¥>>");
+		System.out.printf("  - ì´ë¦„: ");
 		name = scanner.next();
-		System.out.printf("  - ÀÌ¸ÞÀÏ: ");
+		System.out.printf("  - ì´ë©”ì¼: ");
 		email = scanner.next();
 		contactGroupManager.showAll();
-		System.out.printf("  - ±×·ì: ");
+		System.out.printf("  - ê·¸ë£¹: ");
 		groupID = scanner.nextInt();
 		group = contactGroupManager.findGroupByID(groupID);
 		if(group == null) {
-			System.out.println("±×·ìÀ» Ã£Áö ¸øÇß½À´Ï´Ù!");
+			System.out.println("ê·¸ë£¹ì„ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤!");
 			return;
 		}
 		Contact contact = new Person(name, email, group);
 		contactManager.addContact(contact);
-		System.out.println(String.format("   >> %s %s Ãß°¡ ¼º°ø...", group.getName(), name));
+		System.out.println(String.format("   >> %s %s ì¶”ê°€ ì„±ê³µ...", group.getName(), name));
 		return;
 	}
 	
@@ -46,37 +46,37 @@ public class MainMenu {
 		String name, email, city;
 		int groupID;
 		ContactGroup group = null;
-		System.out.println("<<¿¬¶ôÃ³ Á¤º¸ÀÔ·Â>>");
-		System.out.printf("  - ÀÌ¸§: ");
+		System.out.println("<<ì—°ë½ì²˜ ì •ë³´ìž…ë ¥>>");
+		System.out.printf("  - ì´ë¦„: ");
 		name = scanner.next();
-		System.out.printf("  - ÀÌ¸ÞÀÏ: ");
+		System.out.printf("  - ì´ë©”ì¼: ");
 		email = scanner.next();
 		contactGroupManager.showAll();
-		System.out.printf("  - ±×·ì: ");
+		System.out.printf("  - ê·¸ë£¹: ");
 		groupID = scanner.nextInt();
 		group = contactGroupManager.findGroupByID(groupID);
 		if(group == null) {
-			System.out.println("±×·ìÀ» Ã£Áö ¸øÇß½À´Ï´Ù!");
+			System.out.println("ê·¸ë£¹ì„ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤!");
 			return;
 		}
-		System.out.printf("  - µµ½Ã: ");
+		System.out.printf("  - ë„ì‹œ: ");
 		city = scanner.next();
 		Contact contact = new Company(name, email, group, city);
 		contactManager.addContact(contact);
-		System.out.println(String.format("   >> %s %s Ãß°¡ ¼º°ø...", group.getName(), name));
+		System.out.println(String.format("   >> %s %s ì¶”ê°€ ì„±ê³µ...", group.getName(), name));
 		return;
 	}
 	
 	static void addGroup(Scanner scanner, ContactGroupManager contactGroupManager) {
 		int id;
 		String name;
-		System.out.println("<<¿¬¶ôÃ³ ±×·ì Á¤º¸ ÀÔ·Â>>");
+		System.out.println("<<ì—°ë½ì²˜ ê·¸ë£¹ ì •ë³´ ìž…ë ¥>>");
 		id = contactGroupManager.getNextIndex();
-		System.out.printf("  - ±×·ì ID: %d\n", id);
-		System.out.printf("  - ÀÌ¸§: ");
+		System.out.printf("  - ê·¸ë£¹ ID: %d\n", id);
+		System.out.printf("  - ì´ë¦„: ");
 		name = scanner.next();
 		ContactGroup group = new ContactGroup(id, name);
 		contactGroupManager.insert(group);
-		System.out.println(String.format(">> %s: ±×·ì Ãß°¡ ¼º°ø...", name));
+		System.out.println(String.format(">> %s: ê·¸ë£¹ ì¶”ê°€ ì„±ê³µ...", name));
 	}
 }

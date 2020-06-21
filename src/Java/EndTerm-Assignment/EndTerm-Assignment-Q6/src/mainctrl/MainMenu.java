@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public abstract class MainMenu {
 	static int issueMenu(Scanner scanner) {
-		System.out.println(" << ¸Þ ÀÎ ¸Þ ´º >>");
-		System.out.println(" 1. ÇÐ»ý ¸â¹ö Ãß°¡");
-		System.out.println(" 2. ÇÐ»ý ¸â¹ö ¸ñ·Ï Ãâ·Â");
+		System.out.println(" << ë©” ì¸ ë©” ë‰´ >>");
+		System.out.println(" 1. í•™ìƒ ë©¤ë²„ ì¶”ê°€");
+		System.out.println(" 2. í•™ìƒ ë©¤ë²„ ëª©ë¡ ì¶œë ¥");
 		System.out.println();
-		System.out.println(" 3. ¸àÅä ¸â¹ö Ãß°¡");
-		System.out.println(" 4. ¸àÅä ¸â¹ö ¸ñ·Ï Ãâ·Â");
-		System.out.println(" 5. ¸â¹ö Á¶È¸");
-		System.out.println(" 6. ÀüÃ¼ ¸â¹ö ¸ñ·Ï Ãâ·Â");
+		System.out.println(" 3. ë©˜í†  ë©¤ë²„ ì¶”ê°€");
+		System.out.println(" 4. ë©˜í†  ë©¤ë²„ ëª©ë¡ ì¶œë ¥");
+		System.out.println(" 5. ë©¤ë²„ ì¡°íšŒ");
+		System.out.println(" 6. ì „ì²´ ë©¤ë²„ ëª©ë¡ ì¶œë ¥");
 		System.out.println();
-		System.out.println(" 7. Team Ãß°¡");
-		System.out.println(" 8. Team ¸ñ·Ï Ãâ·Â");
-		System.out.println(" 9. Teamº° ¸â¹ö ¸ñ·Ï Ãâ·Â");
+		System.out.println(" 7. Team ì¶”ê°€");
+		System.out.println(" 8. Team ëª©ë¡ ì¶œë ¥");
+		System.out.println(" 9. Teamë³„ ë©¤ë²„ ëª©ë¡ ì¶œë ¥");
 		System.out.println();
-		System.out.println(" 0. Á¾·á");
+		System.out.println(" 0. ì¢…ë£Œ");
 		System.out.println("----------------------------------");
-		System.out.printf("¸Þ´º ¹øÈ£? >>");
+		System.out.printf("ë©”ë‰´ ë²ˆí˜¸? >>");
 		int res = scanner.nextInt();
 		return res;
 	}

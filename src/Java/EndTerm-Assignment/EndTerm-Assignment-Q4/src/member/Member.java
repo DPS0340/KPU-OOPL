@@ -15,12 +15,12 @@ public abstract class Member implements Showable {
 	}
 	
 	public void show() {
-		// »ó¼Ó½Ã @Override
+		// ìƒì†ì‹œ @Override
 		return;
 	}
 	
 	public void showFormat() {
-		// »ó¼Ó½Ã @Override
+		// ìƒì†ì‹œ @Override
 		return;
 	}
 	

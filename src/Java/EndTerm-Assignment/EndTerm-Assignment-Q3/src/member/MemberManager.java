@@ -36,7 +36,7 @@ public class MemberManager {
 	
 	public void showAll() {
 		System.out.println("------------------------------------");
-		System.out.println("ID   ÀÌ¸§     Team    Àü°ø           ÇĞ³â");
+		System.out.println("ID   ì´ë¦„     Team    ì „ê³µ           í•™ë…„");
 		System.out.println("------------------------------------");
 		for(int i=0;i<index;i++) {
 			memberList[i].show();
@@ -46,7 +46,7 @@ public class MemberManager {
 	
 	public void showStudents() {
 		System.out.println("------------------------------------");
-		System.out.println("ID   ÀÌ¸§     Team    Àü°ø           ÇĞ³â");
+		System.out.println("ID   ì´ë¦„     Team    ì „ê³µ           í•™ë…„");
 		System.out.println("------------------------------------");
 		for(int i=0;i<index;i++) {
 			if(memberList[i] instanceof Student) {

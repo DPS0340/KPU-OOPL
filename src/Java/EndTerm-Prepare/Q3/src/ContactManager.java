@@ -21,7 +21,7 @@ public class ContactManager {
 	}
 	public void showAll() {
 		System.out.println("------------------------------------------");
-		System.out.println("ÀÌ¸§            ÀÌ¸ŞÀÏ                ±×·ì/´ëÇ¥ÀÚ         µµ½Ã");
+		System.out.println("ì´ë¦„            ì´ë©”ì¼                ê·¸ë£¹/ëŒ€í‘œì         ë„ì‹œ");
 		System.out.println("------------------------------------------");
 		for(int i=0;i<index;i++) {
 			ContactArr[i].showData();			
@@ -35,10 +35,10 @@ public class ContactManager {
 	
 	public void search(Scanner scanner) {
 		String findName;
-		System.out.println("°Ë»ö ÀÌ¸§>> ");
+		System.out.println("ê²€ìƒ‰ ì´ë¦„>> ");
 		findName = scanner.next();
 		System.out.println("------------------------------------------");
-		System.out.println("ÀÌ¸§            ÀÌ¸ŞÀÏ                ±×·ì/´ëÇ¥ÀÚ         µµ½Ã");
+		System.out.println("ì´ë¦„            ì´ë©”ì¼                ê·¸ë£¹/ëŒ€í‘œì         ë„ì‹œ");
 		System.out.println("------------------------------------------");
 		for(int i=0;i<index;i++) {
 			if(ContactArr[i].getName().equals(findName)) {

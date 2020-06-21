@@ -13,61 +13,61 @@ public class MainCtrl {
 		Scanner scanner = new Scanner(System.in);
 		MemberManager memberManager = new MemberManager(50);
 		TeamManager teamManager = new TeamManager(50);
-		teamManager.insert(new Team(teamManager.getNextIndex(), "¾ÆÄ§ÀÌ´Ù"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "Á¡½É¸Ô°í"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "³î´Ù°¡ÀÚ"));
-		teamManager.insert(new Team(teamManager.getNextIndex(), "²Ş²Û´Ù"));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ì•„ì¹¨ì´ë‹¤"));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ì ì‹¬ë¨¹ê³ "));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ë†€ë‹¤ê°€ì"));
+		teamManager.insert(new Team(teamManager.getNextIndex(), "ê¿ˆê¾¼ë‹¤"));
 		
-		memberManager.insert(new Student(memberManager.getNextIndex(), "È«ÇĞ»ı", teamManager.getTeamByIndex(1), "¼ÒÇÁÆ®¿ş¾î", 1));
-		memberManager.insert(new Student(memberManager.getNextIndex(), "±èÇĞ»ı", teamManager.getTeamByIndex(2), "°ÔÀÓ°øÇĞ", 2));
-		memberManager.insert(new Student(memberManager.getNextIndex(), "¹ÚÇĞ»ı", teamManager.getTeamByIndex(1), "ÄÄÇ»ÅÍ°øÇĞ", 3));
-		memberManager.insert(new Mentor(memberManager.getNextIndex(), "È«¸àÅä", teamManager.getTeamByIndex(1), "Happy co."));
-		memberManager.insert(new Mentor(memberManager.getNextIndex(), "¹Ú¸àÅä", teamManager.getTeamByIndex(3), "(ÁÖ)Çàº¹"));
+		memberManager.insert(new Student(memberManager.getNextIndex(), "í™í•™ìƒ", teamManager.getTeamByIndex(1), "ì†Œí”„íŠ¸ì›¨ì–´", 1));
+		memberManager.insert(new Student(memberManager.getNextIndex(), "ê¹€í•™ìƒ", teamManager.getTeamByIndex(2), "ê²Œì„ê³µí•™", 2));
+		memberManager.insert(new Student(memberManager.getNextIndex(), "ë°•í•™ìƒ", teamManager.getTeamByIndex(1), "ì»´í“¨í„°ê³µí•™", 3));
+		memberManager.insert(new Mentor(memberManager.getNextIndex(), "í™ë©˜í† ", teamManager.getTeamByIndex(1), "Happy co."));
+		memberManager.insert(new Mentor(memberManager.getNextIndex(), "ë°•ë©˜í† ", teamManager.getTeamByIndex(3), "(ì£¼)í–‰ë³µ"));
 
 		int res;
 		while (true) {
 			res = MainMenu.issueMenu(scanner);
 			switch (res) {
 			case 0:
-				System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+				System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 				return;
 			case 1:
-				System.out.println("<ÇĞ»ı ¸â¹ö Ãß°¡>");
+				System.out.println("<í•™ìƒ ë©¤ë²„ ì¶”ê°€>");
 				memberManager.insertStudentWithUserInput(scanner, teamManager);
 				break;
 			case 2:
-				System.out.println("<ÇĞ»ı ¸â¹ö ¸ñ·Ï>");
+				System.out.println("<í•™ìƒ ë©¤ë²„ ëª©ë¡>");
 				memberManager.showStudents();
 				break;
 			case 3:
-				System.out.println("<¸àÅä ¸â¹ö Ãß°¡>");
+				System.out.println("<ë©˜í†  ë©¤ë²„ ì¶”ê°€>");
 				memberManager.insertMentorWithUserInput(scanner, teamManager);
 				break;
 			case 4:
-				System.out.println("<¸àÅä ¸â¹ö ¸ñ·Ï>");
+				System.out.println("<ë©˜í†  ë©¤ë²„ ëª©ë¡>");
 				memberManager.showMentors();
 				break;
 			case 5:
-				System.out.println("<¸â¹ö Á¶È¸>");
+				System.out.println("<ë©¤ë²„ ì¡°íšŒ>");
 				memberManager.findMemberWithUserInput(scanner);
 				break;
 			case 6:
-				System.out.println("<¸ğµç ¸â¹ö ¸ñ·Ï>");
+				System.out.println("<ëª¨ë“  ë©¤ë²„ ëª©ë¡>");
 				memberManager.showAll();
 				break;
 			case 7:
-				System.out.println("<Team Ãß°¡>");
+				System.out.println("<Team ì¶”ê°€>");
 				teamManager.insertTeamByUserInput(scanner, memberManager);
 				break;
 			case 8:
-				System.out.println("<¸ğµç Team ¸ñ·Ï>");
+				System.out.println("<ëª¨ë“  Team ëª©ë¡>");
 				teamManager.showAll();
 				break;
 			case 9:
 				teamManager.showTeamMembersByUserInput(scanner, memberManager);
 				break;
 			default:
-				System.out.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+				System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
 				break;
 			}
 		}

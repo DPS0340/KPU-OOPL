@@ -22,7 +22,7 @@ public class ContactGroupManager {
 	}
 	public void showAll() {
 		System.out.println("--------------------------------");
-		System.out.println("Group ID      Group ¿Ã∏ß");
+		System.out.println("Group ID      Group Ïù¥Î¶Ñ");
 		System.out.println("--------------------------------");
 		for(int i=0;i<index;i++) {
 			arr[i].showData();

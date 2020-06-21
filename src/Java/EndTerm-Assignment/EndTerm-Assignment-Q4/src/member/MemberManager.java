@@ -37,7 +37,7 @@ public class MemberManager {
 	
 	public void showAll() {
 		System.out.println("------------------------------------");
-		System.out.println("ID   ÀÌ¸§     Team    Àü°ø/È¸»ç      ÇĞ³â");
+		System.out.println("ID   ì´ë¦„     Team    ì „ê³µ/íšŒì‚¬      í•™ë…„");
 		System.out.println("------------------------------------");
 		for(int i=0;i<index;i++) {
 			memberList[i].show();
@@ -47,7 +47,7 @@ public class MemberManager {
 	
 	public void showStudents() {
 		System.out.println("------------------------------------");
-		System.out.println("ID   ÀÌ¸§     Team    Àü°ø           ÇĞ³â");
+		System.out.println("ID   ì´ë¦„     Team    ì „ê³µ           í•™ë…„");
 		System.out.println("------------------------------------");
 		for(int i=0;i<index;i++) {
 			if(memberList[i] instanceof Student) {
@@ -59,7 +59,7 @@ public class MemberManager {
 	
 	public void showMentors() {
 		System.out.println("------------------------------------");
-		System.out.println("ID   ÀÌ¸§     Team    Àü°ø           ÇĞ³â");
+		System.out.println("ID   ì´ë¦„     Team    ì „ê³µ           í•™ë…„");
 		System.out.println("------------------------------------");
 		for(int i=0;i<index;i++) {
 			if(memberList[i] instanceof Mentor) {
@@ -75,29 +75,29 @@ public class MemberManager {
 		String name, major;
 		Team team;
 		System.out.println(String.format(" - ID: %d", id));
-		System.out.printf(" - ÀÌ¸§: ");
+		System.out.printf(" - ì´ë¦„: ");
 		name = scanner.next();
-		System.out.printf(" - Àü°ø: ");
+		System.out.printf(" - ì „ê³µ: ");
 		major = scanner.next();
-		System.out.printf(" - ÇĞ³â: ");
+		System.out.printf(" - í•™ë…„: ");
 		year = scanner.nextInt();
 		teamManager.showAll();
 		System.out.printf(" - Team ID: ");
 		teamID = scanner.nextInt();
 		team = teamManager.getTeamByIndex(teamID);
 		if(team == null) {
-			System.out.println("±×·± ÆÀÀº ¾ø½À´Ï´Ù.");
+			System.out.println("ê·¸ëŸ° íŒ€ì€ ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
 		Student student = new Student(id, name, team, major, year);
 		boolean isInserted = this.insert(student);
 		
 		if(isInserted == false) {
-			System.out.println("ÇĞ»ı Ãß°¡¿¡ ½ÇÆĞÇß½À´Ï´Ù");
+			System.out.println("í•™ìƒ ì¶”ê°€ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
 			return;
 		}
 		
-		System.out.println(String.format("=> %s: ÇĞ»ıÀ» Ãß°¡Çß½À´Ï´Ù", name));
+		System.out.println(String.format("=> %s: í•™ìƒì„ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤", name));
 	}
 	
 	public void insertMentorWithUserInput(Scanner scanner, TeamManager teamManager) {
@@ -106,26 +106,26 @@ public class MemberManager {
 		String name, org;
 		Team team;
 		System.out.println(String.format(" - ID: %d", id));
-		System.out.printf(" - ÀÌ¸§: ");
+		System.out.printf(" - ì´ë¦„: ");
 		name = scanner.next();
-		System.out.printf(" - È¸»ç: ");
+		System.out.printf(" - íšŒì‚¬: ");
 		org = scanner.next();
 		teamManager.showAll();
 		System.out.printf(" - Team ID: ");
 		teamID = scanner.nextInt();
 		team = teamManager.getTeamByIndex(teamID);
 		if(team == null) {
-			System.out.println("±×·± ÆÀÀº ¾ø½À´Ï´Ù.");
+			System.out.println("ê·¸ëŸ° íŒ€ì€ ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
 		Mentor student = new Mentor(id, name, team, org);
 		boolean isInserted = this.insert(student);
 		
 		if(isInserted == false) {
-			System.out.println("¸àÅä Ãß°¡¿¡ ½ÇÆĞÇß½À´Ï´Ù");
+			System.out.println("ë©˜í†  ì¶”ê°€ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
 			return;
 		}
 		
-		System.out.println(String.format("=> %s: ¸àÅä¸¦ Ãß°¡Çß½À´Ï´Ù", name));
+		System.out.println(String.format("=> %s: ë©˜í† ë¥¼ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤", name));
 	}
 }

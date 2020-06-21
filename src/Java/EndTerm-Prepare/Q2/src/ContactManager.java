@@ -19,7 +19,7 @@ public class ContactManager {
 	}
 	public void showAll() {
 		System.out.println("-----------------------------------");
-		System.out.println("ÀÌ¸§            ÀÌ¸ŞÀÏ                ±×·ì");
+		System.out.println("ì´ë¦„            ì´ë©”ì¼                ê·¸ë£¹");
 		System.out.println("-----------------------------------");
 		for(int i=0;i<index;i++) {
 			ContactArr[i].showData();			

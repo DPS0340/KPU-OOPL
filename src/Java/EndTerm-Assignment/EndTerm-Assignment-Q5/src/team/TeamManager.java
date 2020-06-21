@@ -32,7 +32,7 @@ public class TeamManager {
 	
 	public void showAll() {
 		System.out.println("-------------------");
-		System.out.println("ID      Team ¿Ã∏ß");
+		System.out.println("ID      Team Ïù¥Î¶Ñ");
 		System.out.println("-------------------");
 		for(int i=0;i<index;i++) {
 			teamList[i].show();

@@ -36,7 +36,7 @@ public class TeamManager {
 	
 	public void showAll() {
 		System.out.println("-------------------");
-		System.out.println("ID      Team ÀÌ¸§");
+		System.out.println("ID      Team ì´ë¦„");
 		System.out.println("-------------------");
 		for(int i=0;i<index;i++) {
 			teamList[i].show();
@@ -48,29 +48,29 @@ public class TeamManager {
 		int id = this.getNextIndex();
 		String name;
 		System.out.println(String.format("- ID: %d", id));
-		System.out.printf("- Å¸ÀÌÆ²: ");
+		System.out.printf("- íƒ€ì´í‹€: ");
 		name = scanner.next();
 		Team team = new Team(id, name);
 		boolean isInserted = insert(team);
 		if(isInserted == false) {
-			System.out.println("Team Ãß°¡ ½ÇÆĞ..");
+			System.out.println("Team ì¶”ê°€ ì‹¤íŒ¨..");
 		}
-		System.out.println(String.format(">>%s: TeamÀ» Ãß°¡ÇÏ¿´½À´Ï´Ù.", name));
+		System.out.println(String.format(">>%s: Teamì„ ì¶”ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.", name));
 	}
 	
 	public void showTeamMembersByUserInput(Scanner scanner, MemberManager memberManager) {
 		int teamID;
 		Team team;
-		System.out.println("<¸ğµç Team ¸ñ·Ï>");
+		System.out.println("<ëª¨ë“  Team ëª©ë¡>");
 		this.showAll();
 		System.out.printf("- Team ID: ");
 		teamID = scanner.nextInt();
 		team = this.getTeamByIndex(teamID);
 		if(team == null) {
-			System.out.println("±×·± ÆÀÀº ¾ø½À´Ï´Ù");
+			System.out.println("ê·¸ëŸ° íŒ€ì€ ì—†ìŠµë‹ˆë‹¤");
 			return;
 		}
-		System.out.println(String.format("<%s: ¸â¹ö ¸ñ·Ï>", team.getTitle()));
+		System.out.println(String.format("<%s: ë©¤ë²„ ëª©ë¡>", team.getTitle()));
 		memberManager.showByTeam(team);
 	}
 }

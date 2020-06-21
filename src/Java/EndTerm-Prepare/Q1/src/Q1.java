@@ -1,10 +1,10 @@
 
 public class Q1 {
 	public static void main(String[] args) {
-		Contact hongContact = new Contact("È«±æµ¿", "kdhong@kpu.ac.kr", "°íµùÄ£±¸");
+		Contact hongContact = new Contact("í™ê¸¸ë™", "kdhong@kpu.ac.kr", "ê³ ë”©ì¹œêµ¬");
 		
 		System.out.println("-----------------------------------");
-		System.out.println("ÀÌ¸§            ÀÌ¸ŞÀÏ                ±×·ì");
+		System.out.println("ì´ë¦„            ì´ë©”ì¼                ê·¸ë£¹");
 		System.out.println("-----------------------------------");
 		hongContact.showData();
 		System.out.println("-----------------------------------");
