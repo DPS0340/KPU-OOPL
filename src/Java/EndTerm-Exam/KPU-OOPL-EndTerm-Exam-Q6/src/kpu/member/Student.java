@@ -22,7 +22,7 @@ public class Student extends Member {
 	
 	@Override
 	public void showWithType() {
-		System.out.printf("ÇĞ»ı    ");
+		System.out.printf("í•™ìƒ    ");
 		showData();
 	}
 	

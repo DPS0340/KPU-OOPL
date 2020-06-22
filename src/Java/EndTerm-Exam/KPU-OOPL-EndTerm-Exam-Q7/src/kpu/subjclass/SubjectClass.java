@@ -28,7 +28,7 @@ public class SubjectClass {
 	}
 	public void showAll() {
 		System.out.println("----------------------");
-		System.out.println("备盒    ID    捞抚      傈傍/家加       切斥");
+		System.out.println("甑秳    ID    鞚措      鞝勱车/靻岇啀       頃欕厔");
 		System.out.println("----------------------");
 		for(int i=0;i<index;i++) {
 			mList[i].showWithType();

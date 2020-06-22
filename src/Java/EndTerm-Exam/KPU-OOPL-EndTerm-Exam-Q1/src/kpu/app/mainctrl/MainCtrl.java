@@ -4,7 +4,7 @@ import kpu.member.Student;
 
 public class MainCtrl {
 	public static void main(String[] args) {
-		Student student = new Student(1, "È«ÇĞ»ı", "¼ÒÇÁÆ®¿ş¾î", 3);
+		Student student = new Student(1, "í™í•™ìƒ", "ì†Œí”„íŠ¸ì›¨ì–´", 3);
 		student.showWithFormat();
 	}
 }

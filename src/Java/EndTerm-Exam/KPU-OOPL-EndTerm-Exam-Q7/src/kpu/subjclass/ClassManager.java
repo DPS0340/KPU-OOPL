@@ -37,7 +37,7 @@ public class ClassManager {
 	
 	public void showAll() {
 		System.out.println("--------------------");
-		System.out.println("ID   Å¬·¡½º   ÀÌ¸§");
+		System.out.println("ID   í´ë˜ìŠ¤   ì´ë¦„");
 		System.out.println("--------------------");
 		for(int i=0;i<index;i++) {
 			scList[i].showData();
@@ -49,35 +49,35 @@ public class ClassManager {
 		int id = getNextIndex();
 		String title;
 		System.out.println(String.format("- ID: %d", id));
-		System.out.printf("- Å¸ÀÌÆ²: ");
+		System.out.printf("- íƒ€ì´í‹€: ");
 		title = scanner.next();
 		boolean res = insert(new SubjectClass(id, title));
 		if(!res) {
-			System.out.println("Å¬·¡½º Ãß°¡ ½ÇÆĞ..");
+			System.out.println("í´ë˜ìŠ¤ ì¶”ê°€ ì‹¤íŒ¨..");
 		} else {
-			System.out.println(String.format(">>%s: Å¬·¡½º Ãß°¡", title));
+			System.out.println(String.format(">>%s: í´ë˜ìŠ¤ ì¶”ê°€", title));
 		}
 	}
 	
 	public void showClassComponentsWithUserInput(Scanner scanner) {
 		showAll();
-		System.out.printf(" - Å¬·¡½º ID: ");
+		System.out.printf(" - í´ë˜ìŠ¤ ID: ");
 		int id = scanner.nextInt();
 		if(id > getNextIndex() || id <= 0) {
-			System.out.println("±×·± Å¬·¡½º´Â ¾ø½À´Ï´Ù.");
+			System.out.println("ê·¸ëŸ° í´ë˜ìŠ¤ëŠ” ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
 		id--;
-		System.out.println(String.format("[%s: ±¸¼º¿ø ¸ñ·Ï]", scList[id].getSubject()));
+		System.out.println(String.format("[%s: êµ¬ì„±ì› ëª©ë¡]", scList[id].getSubject()));
 		scList[id].showAll();
 	}
 	
 	public void insertClassComponentWithUserInput(Scanner scanner, MemberList memberList) {
 		showAll();
-		System.out.printf(" - Å¬·¡½º ID: ");
+		System.out.printf(" - í´ë˜ìŠ¤ ID: ");
 		int id = scanner.nextInt();
 		if(id >= getNextIndex() || id <= 0) {
-			System.out.println("±×·± Å¬·¡½º´Â ¾ø½À´Ï´Ù.");
+			System.out.println("ê·¸ëŸ° í´ë˜ìŠ¤ëŠ” ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
 		id--;
@@ -85,25 +85,25 @@ public class ClassManager {
 		int res;
 		int cnt = 0;
 		while(true) {
-			System.out.printf(" - ±¸¼º¿ø ID(0=³¡³»±â): ");
+			System.out.printf(" - êµ¬ì„±ì› ID(0=ëë‚´ê¸°): ");
 			res = scanner.nextInt();
 			if(res == 0) {
-				System.out.println(String.format(">> %s Å¬·¡½º¿¡ ±¸¼º¿ø %d¸í Ãß°¡", scList[id].getSubject(), cnt));
+				System.out.println(String.format(">> %s í´ë˜ìŠ¤ì— êµ¬ì„±ì› %dëª… ì¶”ê°€", scList[id].getSubject(), cnt));
 				break;
 			}
 			if(res >= memberList.getNextIndex() || res < 0) {
-				System.out.println("±×·± ±¸¼º¿øÀº ¾ø½À´Ï´Ù.");
+				System.out.println("ê·¸ëŸ° êµ¬ì„±ì›ì€ ì—†ìŠµë‹ˆë‹¤.");
 				continue;
 			}
 			Member member = memberList.getMemberByIndex(res);
 			if(scList[id].getMemberByName(member.getName()) != null) {
-				System.out.println("ÀÌ¹Ì ÀÖ´Â ±¸¼º¿øÀÔ´Ï´Ù.");
+				System.out.println("ì´ë¯¸ ìˆëŠ” êµ¬ì„±ì›ì…ë‹ˆë‹¤.");
 				continue;
 			}
 			boolean isInserted = scList[id].insert(member);
 			if(!isInserted) {
-				System.out.println("±¸¼º¿ø Ãß°¡ ½ÇÆĞ...");
-				System.out.println(String.format(">> %s Å¬·¡½º¿¡ ±¸¼º¿ø %d¸í Ãß°¡", scList[id].getSubject(), cnt));
+				System.out.println("êµ¬ì„±ì› ì¶”ê°€ ì‹¤íŒ¨...");
+				System.out.println(String.format(">> %s í´ë˜ìŠ¤ì— êµ¬ì„±ì› %dëª… ì¶”ê°€", scList[id].getSubject(), cnt));
 				break;
 			}
 			cnt++;
@@ -112,7 +112,7 @@ public class ClassManager {
 	
 	public void showAllComponents() {
 		for(int i=0;i<index;i++) {
-			System.out.println(String.format("[%d %s: ±¸¼º¿ø ¸ñ·Ï]", scList[i].getID(), scList[i].getSubject()));
+			System.out.println(String.format("[%d %s: êµ¬ì„±ì› ëª©ë¡]", scList[i].getID(), scList[i].getSubject()));
 			scList[i].showAll();
 			System.out.println("");
 		}

@@ -13,14 +13,14 @@ public class MainCtrl {
 		Scanner scanner = new Scanner(System.in);
 		MemberList memberList = new MemberList(50);
 		ClassManager classManager = new ClassManager(50);
-		classManager.insert(new SubjectClass(classManager.getNextIndex(), "°´Ã¼ÁöÇâ"));
+		classManager.insert(new SubjectClass(classManager.getNextIndex(), "ê°ì²´ì§€í–¥"));
 		classManager.insert(new SubjectClass(classManager.getNextIndex(), "OOPL"));
 		classManager.insert(new SubjectClass(classManager.getNextIndex(), "Java"));
-		memberList.insert(new Student(memberList.getNextIndex(), "È«ÇĞ»ı", "¼ÒÇÁÆ®¿ş¾î", 3));
-		memberList.insert(new Student(memberList.getNextIndex(), "±èÇĞ»ı", "°ÔÀÓ°øÇĞ", 2));
-		memberList.insert(new Student(memberList.getNextIndex(), "¹ÚÇĞ»ı", "ÄÄÇ»ÅÍ°øÇĞ", 1));
-		memberList.insert(new Professor(memberList.getNextIndex(), "È«±³¼ö", "Computer"));
-		memberList.insert(new Professor(memberList.getNextIndex(), "¹Ú±³¼ö", "Software"));
+		memberList.insert(new Student(memberList.getNextIndex(), "í™í•™ìƒ", "ì†Œí”„íŠ¸ì›¨ì–´", 3));
+		memberList.insert(new Student(memberList.getNextIndex(), "ê¹€í•™ìƒ", "ê²Œì„ê³µí•™", 2));
+		memberList.insert(new Student(memberList.getNextIndex(), "ë°•í•™ìƒ", "ì»´í“¨í„°ê³µí•™", 1));
+		memberList.insert(new Professor(memberList.getNextIndex(), "í™êµìˆ˜", "Computer"));
+		memberList.insert(new Professor(memberList.getNextIndex(), "ë°•êµìˆ˜", "Software"));
 
 		while(true) {
 			int res = MainMenu.showMenu(scanner);
@@ -33,54 +33,54 @@ public class MainCtrl {
 	public static boolean choice(int res, Scanner scanner, MemberList memberList, ClassManager classManager) {
 		switch (res) {
 		case 0:
-			System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+			System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 			return false;
 		case 1:
-			System.out.println("<1. ÇĞ»ı Ãß°¡>");
+			System.out.println("<1. í•™ìƒ ì¶”ê°€>");
 			memberList.insertStudentByUserInput(scanner);
 			return true;
 		case 2:
-			System.out.println("<2. ÇĞ»ı ¸ñ·Ï Ãâ·Â>");
+			System.out.println("<2. í•™ìƒ ëª©ë¡ ì¶œë ¥>");
 			memberList.showStudents();
 			return true;
 		case 3:
-			System.out.println("<3. ±³¼ö Ãß°¡>");
+			System.out.println("<3. êµìˆ˜ ì¶”ê°€>");
 			memberList.insertProfessorByUserInput(scanner);
 			return true;
 		case 4:
-			System.out.println("<4. ±³¼ö ¸ñ·Ï Ãâ·Â>");
+			System.out.println("<4. êµìˆ˜ ëª©ë¡ ì¶œë ¥>");
 			memberList.showProfessors();
 			return true;
 		case 5:
-			System.out.println("<5. ±¸¼º¿ø Á¶È¸>");
+			System.out.println("<5. êµ¬ì„±ì› ì¡°íšŒ>");
 			memberList.findElemByUserInput(scanner);
 			return true;
 		case 6:
-			System.out.println("<6. ¸ğµç ±¸¼º¿ø ¸ñ·Ï Ãâ·Â>");
+			System.out.println("<6. ëª¨ë“  êµ¬ì„±ì› ëª©ë¡ ì¶œë ¥>");
 			memberList.showAll();
 			return true;
 		case 7:
-			System.out.println("<7. Å¬·¡½º Ãß°¡>");
+			System.out.println("<7. í´ë˜ìŠ¤ ì¶”ê°€>");
 			classManager.insertClassWithUserInput(scanner);
 			return true;
 		case 8:
-			System.out.println("<8. Å¬·¡½º ¸ñ·Ï Ãâ·Â>");
+			System.out.println("<8. í´ë˜ìŠ¤ ëª©ë¡ ì¶œë ¥>");
 			classManager.showAll();
 			return true;
 		case 9:
-			System.out.println("<9. Å¬·¡½ºº° ±¸¼º¿ø Ãß°¡>");
-			System.out.println("¹Ì±¸Çö");
+			System.out.println("<9. í´ë˜ìŠ¤ë³„ êµ¬ì„±ì› ì¶”ê°€>");
+			System.out.println("ë¯¸êµ¬í˜„");
 			return true;
 		case 10:
-			System.out.println("<10. Å¬·¡½º ±¸¼º ³»¿ë Ãâ·Â>");
-			System.out.println("¹Ì±¸Çö");
+			System.out.println("<10. í´ë˜ìŠ¤ êµ¬ì„± ë‚´ìš© ì¶œë ¥>");
+			System.out.println("ë¯¸êµ¬í˜„");
 			return true;
 		case 11:
-			System.out.println("<11. ¸ğµç Å¬·¡½º ±¸¼º ³»¿ë Ãâ·Â>");
-			System.out.println("¹Ì±¸Çö");
+			System.out.println("<11. ëª¨ë“  í´ë˜ìŠ¤ êµ¬ì„± ë‚´ìš© ì¶œë ¥>");
+			System.out.println("ë¯¸êµ¬í˜„");
 			return true;
 		default:
-			System.out.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+			System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
 			return true;
 		}
 	}

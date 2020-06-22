@@ -4,26 +4,26 @@ import java.util.Scanner;
 
 public class MainMenu {
 	static int showMenu(Scanner scanner) {
-		System.out.println(" << ¸Þ ÀÎ ¸Þ ´º >>");
-		System.out.println(" 1. ÇÐ»ý Ãß°¡");
-		System.out.println(" 2. ÇÐ»ý ¸ñ·Ï Ãâ·Â");
+		System.out.println(" << ë©” ì¸ ë©” ë‰´ >>");
+		System.out.println(" 1. í•™ìƒ ì¶”ê°€");
+		System.out.println(" 2. í•™ìƒ ëª©ë¡ ì¶œë ¥");
 		System.out.println("");
-		System.out.println(" 3. ±³¼ö Ãß°¡");
-		System.out.println(" 4. ±³¼ö ¸ñ·Ï Ãâ·Â");
+		System.out.println(" 3. êµìˆ˜ ì¶”ê°€");
+		System.out.println(" 4. êµìˆ˜ ëª©ë¡ ì¶œë ¥");
 		System.out.println("");		
-		System.out.println(" 5. ±¸¼º¿ø Á¶È¸");
-		System.out.println(" 6. ¸ðµç ±¸¼º¿ø ¸ñ·Ï Ãâ·Â");
+		System.out.println(" 5. êµ¬ì„±ì› ì¡°íšŒ");
+		System.out.println(" 6. ëª¨ë“  êµ¬ì„±ì› ëª©ë¡ ì¶œë ¥");
 		System.out.println("");
-		System.out.println(" 7. Å¬·¡½º Ãß°¡");
-		System.out.println(" 8. Å¬·¡½º ¸ñ·Ï Ãâ·Â");
+		System.out.println(" 7. í´ëž˜ìŠ¤ ì¶”ê°€");
+		System.out.println(" 8. í´ëž˜ìŠ¤ ëª©ë¡ ì¶œë ¥");
 		System.out.println("");
-		System.out.println(" 9. Å¬·¡½ºº° ±¸¼º¿ø Ãß°¡");
-		System.out.println(" 10. Å¬·¡½º ±¸¼º ³»¿ë Ãâ·Â");
-		System.out.println(" 11. ¸ðµç Å¬·¡½º ±¸¼º ³»¿ë Ãâ·Â");
+		System.out.println(" 9. í´ëž˜ìŠ¤ë³„ êµ¬ì„±ì› ì¶”ê°€");
+		System.out.println(" 10. í´ëž˜ìŠ¤ êµ¬ì„± ë‚´ìš© ì¶œë ¥");
+		System.out.println(" 11. ëª¨ë“  í´ëž˜ìŠ¤ êµ¬ì„± ë‚´ìš© ì¶œë ¥");
 		System.out.println("");
-		System.out.println(" 0. Á¾·á");
+		System.out.println(" 0. ì¢…ë£Œ");
 		System.out.println("-------------------");
-		System.out.printf("¸Þ´º ¹øÈ£? >>");
+		System.out.printf("ë©”ë‰´ ë²ˆí˜¸? >>");
 		int res = scanner.nextInt();
 		return res;
 	}

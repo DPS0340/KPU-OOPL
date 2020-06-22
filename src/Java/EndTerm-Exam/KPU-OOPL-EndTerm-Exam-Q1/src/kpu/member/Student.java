@@ -21,7 +21,7 @@ public class Student implements Showable {
 	
 	public void showWithFormat() {
 		System.out.println("----------------------");
-		System.out.println("ID    ÀÌ¸§      Àü°ø       ÇĞ³â");
+		System.out.println("ID    ì´ë¦„      ì „ê³µ       í•™ë…„");
 		System.out.println("----------------------");
 		showData();
 		System.out.println("----------------------");

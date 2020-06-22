@@ -28,14 +28,14 @@ public abstract class Member implements Showable {
 	
 	@Override
 	public void showWithType() {
-		// »ó¼Ó½Ã @Override
+		// ìƒì†ì‹œ @Override
 		return;
 	}
 	
 	@Override
 	public void showWithFormat() {
 		System.out.println("----------------------");
-		System.out.println("ID    ÀÌ¸§      Àü°ø       ÇĞ³â");
+		System.out.println("ID    ì´ë¦„      ì „ê³µ       í•™ë…„");
 		System.out.println("----------------------");
 		showData();
 		System.out.println("----------------------");
@@ -44,7 +44,7 @@ public abstract class Member implements Showable {
 	@Override
 	public void showWithTypeAndFormat() {
 		System.out.println("----------------------");
-		System.out.println("±¸ºĞ    ID    ÀÌ¸§      Àü°ø/¼Ò¼Ó       ÇĞ³â");
+		System.out.println("êµ¬ë¶„    ID    ì´ë¦„      ì „ê³µ/ì†Œì†       í•™ë…„");
 		System.out.println("----------------------");
 		showWithType();
 		System.out.println("----------------------");

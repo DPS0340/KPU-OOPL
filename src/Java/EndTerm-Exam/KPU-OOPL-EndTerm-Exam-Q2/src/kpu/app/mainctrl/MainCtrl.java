@@ -16,43 +16,43 @@ public class MainCtrl {
 	public static boolean choice(int res) {
 		switch (res) {
 		case 0:
-			System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+			System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 			return false;
 		case 1:
-			System.out.println("<1. ÇĞ»ı Ãß°¡>");
+			System.out.println("<1. í•™ìƒ ì¶”ê°€>");
 			return true;
 		case 2:
-			System.out.println("<2. ÇĞ»ı ¸ñ·Ï Ãâ·Â>");
+			System.out.println("<2. í•™ìƒ ëª©ë¡ ì¶œë ¥>");
 			return true;
 		case 3:
-			System.out.println("<3. ±³¼ö Ãß°¡>");
+			System.out.println("<3. êµìˆ˜ ì¶”ê°€>");
 			return true;
 		case 4:
-			System.out.println("<4. ±³¼ö ¸ñ·Ï Ãâ·Â>");
+			System.out.println("<4. êµìˆ˜ ëª©ë¡ ì¶œë ¥>");
 			return true;
 		case 5:
-			System.out.println("<5. ±¸¼º¿ø Á¶È¸>");
+			System.out.println("<5. êµ¬ì„±ì› ì¡°íšŒ>");
 			return true;
 		case 6:
-			System.out.println("<6. ¸ğµç ±¸¼º¿ø ¸ñ·Ï Ãâ·Â>");
+			System.out.println("<6. ëª¨ë“  êµ¬ì„±ì› ëª©ë¡ ì¶œë ¥>");
 			return true;
 		case 7:
-			System.out.println("<7. Å¬·¡½º Ãß°¡>");
+			System.out.println("<7. í´ë˜ìŠ¤ ì¶”ê°€>");
 			return true;
 		case 8:
-			System.out.println("<8. Å¬·¡½º ¸ñ·Ï Ãâ·Â>");
+			System.out.println("<8. í´ë˜ìŠ¤ ëª©ë¡ ì¶œë ¥>");
 			return true;
 		case 9:
-			System.out.println("<9. Å¬·¡½ºº° ±¸¼º¿ø Ãß°¡>");
+			System.out.println("<9. í´ë˜ìŠ¤ë³„ êµ¬ì„±ì› ì¶”ê°€>");
 			return true;
 		case 10:
-			System.out.println("<10. Å¬·¡½º ±¸¼º ³»¿ë Ãâ·Â>");
+			System.out.println("<10. í´ë˜ìŠ¤ êµ¬ì„± ë‚´ìš© ì¶œë ¥>");
 			return true;
 		case 11:
-			System.out.println("<11. ¸ğµç Å¬·¡½º ±¸¼º ³»¿ë Ãâ·Â>");
+			System.out.println("<11. ëª¨ë“  í´ë˜ìŠ¤ êµ¬ì„± ë‚´ìš© ì¶œë ¥>");
 			return true;
 		default:
-			System.out.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+			System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
 			return true;
 		}
 	}

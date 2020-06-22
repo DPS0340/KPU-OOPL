@@ -27,7 +27,7 @@ public class ClassManager {
 	
 	public void showAll() {
 		System.out.println("--------------------");
-		System.out.println("ID   Å¬·¡½º   ÀÌ¸§");
+		System.out.println("ID   í´ë˜ìŠ¤   ì´ë¦„");
 		System.out.println("--------------------");
 		for(int i=0;i<index;i++) {
 			arr[i].showData();
@@ -39,13 +39,13 @@ public class ClassManager {
 		int id = getNextIndex();
 		String title;
 		System.out.println(String.format("- ID: %d", id));
-		System.out.printf("- Å¸ÀÌÆ²: ");
+		System.out.printf("- íƒ€ì´í‹€: ");
 		title = scanner.next();
 		boolean res = insert(new SubjectClass(id, title));
 		if(!res) {
-			System.out.println("Å¬·¡½º Ãß°¡ ½ÇÆĞ..");
+			System.out.println("í´ë˜ìŠ¤ ì¶”ê°€ ì‹¤íŒ¨..");
 		} else {
-			System.out.println(String.format(">>%s: Å¬·¡½º Ãß°¡", title));
+			System.out.println(String.format(">>%s: í´ë˜ìŠ¤ ì¶”ê°€", title));
 		}
 	}
 }

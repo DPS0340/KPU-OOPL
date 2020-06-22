@@ -15,7 +15,7 @@ public class Professor extends Member {
 	@Override
 	public void showWithFormat() {
 		System.out.println("----------------------");
-		System.out.println("ID    ÀÌ¸§      ¼Ò¼Ó");
+		System.out.println("ID    ì´ë¦„      ì†Œì†");
 		System.out.println("----------------------");
 		showData();
 		System.out.println("----------------------");
@@ -23,7 +23,7 @@ public class Professor extends Member {
 	
 	@Override
 	public void showWithType() {
-		System.out.printf("±³¼ö   ");
+		System.out.printf("êµìˆ˜   ");
 		showData();
 	}
 }

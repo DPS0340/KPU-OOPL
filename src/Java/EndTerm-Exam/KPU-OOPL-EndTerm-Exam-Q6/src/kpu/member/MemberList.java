@@ -24,18 +24,18 @@ public class MemberList {
 		int year;
 		String name, major;
 		System.out.println(String.format(" - ID = %d", id));
-		System.out.printf(" - ÀÌ¸§: ");
+		System.out.printf(" - ì´ë¦„: ");
 		name = scanner.next();
-		System.out.printf(" - Àü°ø: ");
+		System.out.printf(" - ì „ê³µ: ");
 		major = scanner.next();
-		System.out.printf(" - ÇĞ³â: ");
+		System.out.printf(" - í•™ë…„: ");
 		year = scanner.nextInt();
 		
 		boolean res = insert(new Student(id, name, major, year));
 		if(!res) {
-			System.out.println("ÇĞ»ı Ãß°¡¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+			System.out.println("í•™ìƒ ì¶”ê°€ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 		} else {
-			System.out.println(String.format("=> %s: ÇĞ»ıÀ¸·Î Ãß°¡Çß½À´Ï´Ù.", name));
+			System.out.println(String.format("=> %s: í•™ìƒìœ¼ë¡œ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤.", name));
 		}
 	}
 	
@@ -43,16 +43,16 @@ public class MemberList {
 		int id = getNextIndex();
 		String name, org;
 		System.out.println(String.format(" - ID = %d", id));
-		System.out.printf(" - ÀÌ¸§: ");
+		System.out.printf(" - ì´ë¦„: ");
 		name = scanner.next();
-		System.out.printf(" - ¼Ò¼Ó: ");
+		System.out.printf(" - ì†Œì†: ");
 		org = scanner.next();
 		
 		boolean res = insert(new Professor(id, name, org));
 		if(!res) {
-			System.out.println("±³¼ö Ãß°¡¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+			System.out.println("êµìˆ˜ ì¶”ê°€ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 		} else {
-			System.out.println(String.format("=> %s: ±³¼ö·Î Ãß°¡Çß½À´Ï´Ù.", name));
+			System.out.println(String.format("=> %s: êµìˆ˜ë¡œ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤.", name));
 		}
 	}
 	
@@ -66,7 +66,7 @@ public class MemberList {
 	
 	public void showStudents() {
 		System.out.println("----------------------");
-		System.out.println("ID    ÀÌ¸§      Àü°ø       ÇĞ³â");
+		System.out.println("ID    ì´ë¦„      ì „ê³µ       í•™ë…„");
 		System.out.println("----------------------");
 		for(int i=0;i<index;i++) {
 			if(arr[i] instanceof Student) {
@@ -78,7 +78,7 @@ public class MemberList {
 	
 	public void showProfessors() {
 		System.out.println("----------------------");
-		System.out.println("ID    ÀÌ¸§      ¼Ò¼Ó");
+		System.out.println("ID    ì´ë¦„      ì†Œì†");
 		System.out.println("----------------------");
 		for(int i=0;i<index;i++) {
 			if(arr[i] instanceof Professor) {
@@ -90,7 +90,7 @@ public class MemberList {
 	
 	public void showAll() {
 		System.out.println("----------------------");
-		System.out.println("±¸ºĞ    ID    ÀÌ¸§      Àü°ø/¼Ò¼Ó       ÇĞ³â");
+		System.out.println("êµ¬ë¶„    ID    ì´ë¦„      ì „ê³µ/ì†Œì†       í•™ë…„");
 		System.out.println("----------------------");
 		for(int i=0;i<index;i++) {
 			arr[i].showWithType();
@@ -113,13 +113,13 @@ public class MemberList {
 	}
 	
 	public void findElemByUserInput(Scanner scanner) {
-		System.out.println(" - ÀÌ¸§?: ");
+		System.out.println(" - ì´ë¦„?: ");
 		String name = scanner.next();
 		Member res = getMemberByName(name);
 		if(res == null) {
-			System.out.println("Ã£Áö ¸øÇß½À´Ï´Ù.");
+			System.out.println("ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
 		} else {
-			System.out.println("<Ã£Àº ±¸¼º¿ø>");
+			System.out.println("<ì°¾ì€ êµ¬ì„±ì›>");
 			res.showWithTypeAndFormat();
 		}
 	}

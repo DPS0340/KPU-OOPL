@@ -21,7 +21,7 @@ public class SubjectClass implements Showable {
 	@Override
 	public void showWithFormat() {
 		System.out.println("--------------------");
-		System.out.println("ID   Å¬·¡½º   ÀÌ¸§");
+		System.out.println("ID   í´ë˜ìŠ¤   ì´ë¦„");
 		System.out.println("--------------------");
 		showData();
 		System.out.println("--------------------");
